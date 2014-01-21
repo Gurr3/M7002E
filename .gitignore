@@ -149,6 +149,7 @@ project/plugins/project/
 
 #Eclipse pls
 *.class
+.metadata/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
