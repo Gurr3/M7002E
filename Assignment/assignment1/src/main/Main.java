@@ -14,6 +14,7 @@ public class Main {
         gui.Gui_frame frame = new Gui_frame();
         
         frame.getFrame(caps);
-       
+        frame.canvas.addGLEventListener(new Draw_pyramid());
     }
 }
+

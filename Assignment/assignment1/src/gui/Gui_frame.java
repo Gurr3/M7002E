@@ -8,8 +8,10 @@ import javax.media.opengl.GLCapabilities;
 import javax.media.opengl.awt.GLCanvas;
 
 public class Gui_frame {
+	public GLCanvas canvas;
+	
 	public Frame getFrame(GLCapabilities caps) {
-		 GLCanvas canvas = new GLCanvas(caps);
+		canvas = new GLCanvas(caps);
 		
 		Frame frame = new Frame("M7002E assignment 1");
 		frame.setSize(400, 300);
