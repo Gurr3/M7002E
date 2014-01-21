@@ -151,7 +151,6 @@ project/plugins/project/
 *.class
 .metadata/
 jogl-v2.1.3/
-pax_global_header
 libs/
 
 # Mobile Tools for Java (J2ME)
