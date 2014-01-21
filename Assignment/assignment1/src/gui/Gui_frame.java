@@ -7,14 +7,17 @@ import java.awt.event.WindowEvent;
 import javax.media.opengl.GLCapabilities;
 import javax.media.opengl.awt.GLCanvas;
 
+import com.jogamp.opengl.util.FPSAnimator;
+
 public class Gui_frame {
 	public GLCanvas canvas;
+	public FPSAnimator animator;
 	
-	public Frame getFrame(GLCapabilities caps) {
+	public Frame getFrame(GLCapabilities caps, int REFRESH_RATE, int WINDOW_HEIGHT, int WINDOW_WIDTH) {
 		canvas = new GLCanvas(caps);
 		
 		Frame frame = new Frame("M7002E assignment 1");
-		frame.setSize(400, 300);
+		frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 		frame.add(canvas);
 		frame.setVisible(true);
 
@@ -26,7 +29,14 @@ public class Gui_frame {
 				System.exit(0);
 			}
 		});
+		
+		animator = new FPSAnimator(canvas, REFRESH_RATE);
+	        
 		return frame;	
+	}
+	
+	public GLCanvas getcanvas(){
+		return canvas;
 	}
 }
 

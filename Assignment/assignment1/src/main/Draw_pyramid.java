@@ -2,59 +2,91 @@ package main;
 
 import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
+import javax.media.opengl.GL2GL3;
 import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.GLEventListener;
 
 public class Draw_pyramid implements GLEventListener{
 
+	static float anglePyramid = 0;    // rotational angle in degree for pyramid
+
 	@Override
 	public void display(GLAutoDrawable drawable) {
-	    update();
-	    render(drawable);
+		update();
+
+		GL2 gl = drawable.getGL().getGL2();
+		gl.glClear(GL.GL_COLOR_BUFFER_BIT);
+
+		render_triangle_large(drawable, gl);
+		render_pyramid(drawable, gl);
 	}
 
 
 	@Override
 	public void dispose(GLAutoDrawable arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public void init(GLAutoDrawable arg0) {
-		// TODO Auto-generated method stub
-		
+	public void init(GLAutoDrawable drawable) {
 	}
 
 	@Override
-	public void reshape(GLAutoDrawable arg0, int arg1, int arg2, int arg3,
-			int arg4) {
-		// TODO Auto-generated method stub
-		
+	public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
+
 	}
 
 
 	private void update() {
-		// TODO Auto-generated method stub
-		
+
 	}
-	
-	private void render(GLAutoDrawable drawable) {
-	    GL2 gl = drawable.getGL().getGL2();
-	    
-	    // draw a triangle filling the window
-	    gl.glBegin(GL.GL_TRIANGLES);
-	    
-	    gl.glColor3f(1, 0, 0);
-	    gl.glVertex2f(-1, -1);
-	    
-	    gl.glColor3f(0, 1, 0);
-	    gl.glVertex2f(0, 1);
-	    
-	    gl.glColor3f(0, 0, 1);
-	    gl.glVertex2f(1, -1);
-	    
-	    gl.glEnd();
+
+	private void render_triangle_large(GLAutoDrawable drawable, GL2 gl) {
+		// draw a triangle filling the window
+		gl.glPolygonMode(GL.GL_FRONT_AND_BACK, GL2GL3.GL_LINE);
+		gl.glBegin(GL.GL_TRIANGLES);
+
+		// Font-face triangle
+		gl.glColor3f(1.0f, 0.0f, 0.0f); // Red
+		gl.glVertex3f(0.0f, 1.0f, 0.0f);
+		gl.glColor3f(0.0f, 1.0f, 0.0f); // Green
+		gl.glVertex3f(-1.0f, -1.0f, 1.0f);
+		gl.glColor3f(0.0f, 0.0f, 1.0f); // Blue
+		gl.glVertex3f(1.0f, -1.0f, 1.0f);
+
+		// Right-face triangle
+		gl.glColor3f(1.0f, 0.0f, 0.0f); // Red
+		gl.glVertex3f(0.0f, 1.0f, 0.0f);
+		gl.glColor3f(0.0f, 0.0f, 1.0f); // Blue
+		gl.glVertex3f(1.0f, -1.0f, 1.0f);
+		gl.glColor3f(0.0f, 1.0f, 0.0f); // Green
+		gl.glVertex3f(1.0f, -1.0f, -1.0f);
+
+		// Back-face triangle
+		gl.glColor3f(1.0f, 0.0f, 0.0f); // Red
+		gl.glVertex3f(0.0f, 1.0f, 0.0f);
+		gl.glColor3f(0.0f, 1.0f, 0.0f); // Green
+		gl.glVertex3f(1.0f, -1.0f, -1.0f);
+		gl.glColor3f(0.0f, 0.0f, 1.0f); // Blue
+		gl.glVertex3f(-1.0f, -1.0f, -1.0f);
+
+		// Left-face triangle
+		gl.glColor3f(1.0f, 0.0f, 0.0f); // Red
+		gl.glVertex3f(0.0f, 1.0f, 0.0f);
+		gl.glColor3f(0.0f, 0.0f, 1.0f); // Blue
+		gl.glVertex3f(-1.0f, -1.0f, -1.0f);
+		gl.glColor3f(0.0f, 1.0f, 0.0f); // Green
+		gl.glVertex3f(-1.0f, -1.0f, 1.0f);
+
+
+		gl.glEnd();
+		gl.glPolygonMode( GL.GL_FRONT_AND_BACK, GL2GL3.GL_FILL );
+
+	}
+
+	private void render_pyramid(GLAutoDrawable drawable, GL2 gl){
+
 	}
 
 }
