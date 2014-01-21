@@ -150,6 +150,8 @@ project/plugins/project/
 #Eclipse pls
 *.class
 .metadata/
+jogl-v2.1.3/
+pax_global_header
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
