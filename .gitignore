@@ -160,3 +160,6 @@ libs/
 *.jar
 *.war
 *.ear
+
+# Course pls
+*.zip

@@ -7,7 +7,7 @@ import javax.media.opengl.GLProfile;
 
 public class Main {
 	private static final int REFRESH_RATE = 60;
-	private static final int WINDOW_HEIGHT = 600;
+	private static final int WINDOW_HEIGHT = 300;
 	private static final int WINDOW_WIDTH = 800;
 	
 	

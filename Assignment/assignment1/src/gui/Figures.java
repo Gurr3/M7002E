@@ -58,7 +58,7 @@ public class Figures {
 	
 	public void render_pyramid_unfilled(GLAutoDrawable drawable, GL2 gl, float transl_x, float transl_y, float transl_z, float anglePyramid) {
 		gl.glPushMatrix();
-		gl.glPushAttrib(GL_ALL_ATTRIB_BITS);
+		gl.glPushAttrib(GL_ALL_ATTRIB_BITS); 
 		
 		gl.glPolygonMode(GL.GL_FRONT_AND_BACK, GL2GL3.GL_LINE);
 
