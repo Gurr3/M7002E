@@ -12,7 +12,7 @@ import javax.media.opengl.GLAutoDrawable;
 // GL2 constants
 
 public class Figures {
-	static float anglePyramid = 0;    // rotational angle in degree for pyramid
+	
 
 	public void render_square_filled(GLAutoDrawable drawable, GL2 gl, float transl_x, float transl_y, float transl_z){
 		gl.glPushMatrix();
@@ -54,7 +54,9 @@ public class Figures {
 		gl.glPopMatrix();
 	}
 	
-	public void render_pyramid_unfilled(GLAutoDrawable drawable, GL2 gl, float transl_x, float transl_y, float transl_z) {
+	
+	
+	public void render_pyramid_unfilled(GLAutoDrawable drawable, GL2 gl, float transl_x, float transl_y, float transl_z, float anglePyramid) {
 		gl.glPushMatrix();
 		gl.glPushAttrib(GL_ALL_ATTRIB_BITS);
 		

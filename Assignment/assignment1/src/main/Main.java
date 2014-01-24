@@ -10,7 +10,6 @@ public class Main {
 	private static final int WINDOW_HEIGHT = 600;
 	private static final int WINDOW_WIDTH = 800;
 	
-	static float speedPyramid = 2.0f; // rotational speed for pyramid
 	
     public static void main(String[] args) {
     	
