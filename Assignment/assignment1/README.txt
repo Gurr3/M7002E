@@ -57,5 +57,5 @@ draw implements GLEventListener and the four functions therein, of which init, r
 
 reshape handles window resizing.
 
-display is called to initiate rendering, in my case, it will clear buffers, reset the model view matrix with glLoadIdentity and then proceed to call the figures it wishes to render.
+display is called to initiate rendering, in my case, it will clear buffers, reset the model view matrix with glLoadIdentity and then proceed to call the figures it wishes to render, once per viewport.
 
