@@ -23,6 +23,7 @@ public class Gui_frame {
 	public FPSAnimator animator;
 
 	//configs
+	
 	//refresh rate
 	private static int REFRESH_RATE = 60;
 	//Dimensions
@@ -41,6 +42,11 @@ public class Gui_frame {
 		this.draw = draw;
 	}
 
+	/**
+	 * Create the window and its listeners
+	 * @param caps
+	 * @return
+	 */
 	public JFrame getFrame(GLCapabilities caps) {
 		canvas = new GLCanvas(caps);
 
@@ -114,7 +120,6 @@ public class Gui_frame {
 				CustomCreateDialog cdialog = new CustomCreateDialog(frame, true, Fig_type.Pyramid, figure_id);
 				if (cdialog.getAnswer()!=null)
 					draw.figurelist.add(cdialog.getAnswer());
-				System.out.println(cdialog.getAnswer().rotate);
 			}
 
 		});

@@ -25,21 +25,14 @@ public class Pick {
 	Draw_figures paint = new Draw_figures();
 
 	public int pick(GL2 gl, GLU glu, GLAutoDrawable drawable, Point p, int bufsize, ArrayList<Figure_deployment_type> displaylist, float aspect){
-		//int[] selectBuf = new int[bufsize];
-		//		IntBuffer selectBuffer = Buffers.newDirectIntBuffer(bufsize);
 		IntBuffer selectBuffer = Buffers.newDirectIntBuffer(bufsize);
 		int hits;
 		int viewport[] = new int[4];
-
-		// int x, y;
 
 		gl.glGetIntegerv(GL.GL_VIEWPORT, viewport, 0);
 
 		gl.glSelectBuffer(bufsize, selectBuffer);
 		gl.glRenderMode(GL2.GL_SELECT);
-
-		//		gl.glInitNames();
-		//		gl.glPushName(-1);
 
 		gl.glMatrixMode(GL2.GL_PROJECTION);
 		gl.glPushMatrix();
@@ -57,8 +50,6 @@ public class Pick {
 		gl.glFlush();
 
 		hits = gl.glRenderMode(GL2.GL_RENDER);
-		//	selectBuffer.get(selectBuf);
-		//		System.out.println(hits);
 		return processHits(hits, selectBuffer, displaylist);
 	}
 
@@ -71,36 +62,24 @@ public class Pick {
 		System.out.println(" HITS: " + hits);
 		int offset = 0;
 		int names;
-		float z1, z2;
 		ArrayList<Integer> figs_hit= new ArrayList<>(); 
 		ArrayList<float[]> closest = new ArrayList<>();
 		
 		for (int i=0;i<hits;i++)
 		{
-			System.out.println("- - - - - - - - - - - -");
-			System.out.println(" hit: " + (i + 1));
 			names = buffer.get(offset); offset++;
-			z1 = (float) (buffer.get(offset)& 0xffffffffL) / 0x7fffffff; offset++;
-			z2 = (float) (buffer.get(offset)& 0xffffffffL) / 0x7fffffff; offset++;
-			System.out.println(" number of names: " + names);
-			System.out.println(" z1: " + z1);
-			System.out.println(" z2: " + z2);
-			System.out.println(" names: ");
-
+			offset++;
+			offset++;
 			for (int j=0;j<names;j++)
 			{
-				System.out.print("       " + buffer.get(offset)); 
 				if (j==(names-1)){
-					System.out.println("<-");
 					figs_hit.add(buffer.get(offset)); //everytime a new id for hit is found, add to figs_hit
 				}
 				else
-					System.out.println();
 				offset++;
 			}
-			System.out.println("- - - - - - - - - - - -");
 		}
-		System.out.println("---------------------------------");
+
 
 		//create list of figures hit
 		for (Figure_deployment_type fig : displaylist) {
@@ -122,6 +101,7 @@ public class Pick {
 		if (closest.isEmpty())
 			return -1;
 		System.out.println("Youve selected object with id "+ closest.get(closest.size()-1)[0]);
+		System.out.println("---------------------------------");
 		return (int) Math.round(closest.get(closest.size()-1)[0]);
 	}
 

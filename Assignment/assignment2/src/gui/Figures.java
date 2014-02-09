@@ -11,8 +11,7 @@ import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.fixedfunc.GLLightingFunc;
 
 import com.jogamp.opengl.util.gl2.GLUT;
-// GL constants
-// GL2 constants
+
 public class Figures {
 
 	private GLUT glut = new GLUT();
@@ -26,6 +25,12 @@ public class Figures {
 		gl.glPopMatrix();
 	}
 
+	/**
+	 * Paint function for square
+	 * @param drawable
+	 * @param gl
+	 * @param fig
+	 */
 	public void render_square_filled(GLAutoDrawable drawable, GL2 gl, Figure_deployment_type fig){
 		begin(gl);
 
@@ -51,6 +56,12 @@ public class Figures {
 		end(gl);
 	}
 
+	/**
+	 * Paint function for star
+	 * @param drawable
+	 * @param gl
+	 * @param fig
+	 */
 	public void render_star(GLAutoDrawable drawable, GL2 gl, Figure_deployment_type fig){
 		begin(gl);
 		
@@ -81,6 +92,12 @@ public class Figures {
 
 
 
+	/**
+	 * Paint function for pyramid
+	 * @param drawable
+	 * @param gl
+	 * @param fig
+	 */
 	public void render_pyramid_unfilled(GLAutoDrawable drawable, GL2 gl, Figure_deployment_type fig) {
 		begin(gl);
 
@@ -126,6 +143,12 @@ public class Figures {
 	}
 
 
+	/**
+	 * Paint function for sphere
+	 * @param drawable
+	 * @param gl
+	 * @param fig
+	 */
 	public void render_sphere(GLAutoDrawable drawable, GL2 gl, Figure_deployment_type fig){	
 		begin(gl);
 		gl.glTranslatef(fig.xyz[0], fig.xyz[1], fig.xyz[2]);
@@ -137,6 +160,12 @@ public class Figures {
 		end(gl);
 	}
 	
+	/**
+	 * Paint function for cube
+	 * @param drawable
+	 * @param gl
+	 * @param fig
+	 */
 	public void render_cube(GLAutoDrawable drawable, GL2 gl, Figure_deployment_type fig){	
 		begin(gl);
 		gl.glTranslatef(fig.xyz[0], fig.xyz[1], fig.xyz[2]);
@@ -149,6 +178,12 @@ public class Figures {
 		end(gl);
 	}
 	
+	/**
+	 * Paint function for lights
+	 * @param gl
+	 * @param fig
+	 * @param lightnr
+	 */
 	public void lettherebelight(GL2 gl, Figure_deployment_type fig, int lightnr){
 		gl.glLightfv(GL2.GL_LIGHT0+lightnr, GL2.GL_AMBIENT, fig.ambient, 0);
 		gl.glLightfv(GL2.GL_LIGHT0+lightnr, GL2.GL_DIFFUSE, fig.diffuse, 0);

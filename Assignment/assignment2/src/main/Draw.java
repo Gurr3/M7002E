@@ -30,23 +30,11 @@ public class Draw implements GLEventListener{
 	public Pick pick = new Pick();
 	Draw_figures paint = new Draw_figures();
 	float aspect;
+	
 	static public final int NOTHING = 0, UPDATE = 1, SELECT = 2;
 	public int cmd = UPDATE;
-	public int picked_figure;
-//	private GLUT glut = new GLUT();
-	
-	//	private float pyramid_transl_x = -1.6f;
-	//	private float pyramid_transl_y = 0.0f;
-	//	private float pyramid_transl_z = -6.0f;
-	//	private float pyramid_rotate = 0f;
 
-	//	private float square_transl_x = 0f;
-	//	private float square_transl_y = 0f;
-	//	private float square_transl_z = -6.0f;
-
-	//	private float star_transl_x = 3f;
-	//	private float star_transl_y = -2f;
-	//	private float star_transl_z = -8.0f;
+	public int picked_figure; //id of the currently chosen figure
 
 	private int bufsize = 512;
 
@@ -65,9 +53,6 @@ public class Draw implements GLEventListener{
 
 		gl.glPushMatrix();
 
-
-
-
 		gl.glEnable(GLLightingFunc.GL_LIGHTING);
 		gl.glEnable(GLLightingFunc.GL_COLOR_MATERIAL);
 		gl.glColorMaterial ( GL.GL_FRONT_AND_BACK, GLLightingFunc.GL_AMBIENT);
@@ -80,13 +65,6 @@ public class Draw implements GLEventListener{
 			picked_figure= pick.pick(gl, glu, drawable, p, bufsize, figurelist, aspect);
 			cmd = UPDATE;
 		}
-
-
-
-
-		//		figures.render_pyramid_unfilled(drawable, gl, pyramid_transl_x, pyramid_transl_y, pyramid_transl_z, pyramid_rotate, 2);
-		//		figures.render_square_filled(drawable, gl, square_transl_x, square_transl_y, square_transl_z, 2);
-		//		figures.render_star(drawable, gl, star_transl_x, star_transl_y, star_transl_z, 2);
 		gl.glPopMatrix();
 
 	}
@@ -97,7 +75,7 @@ public class Draw implements GLEventListener{
 	@Override
 	public void init(GLAutoDrawable drawable) {
 		GL2 gl = drawable.getGL().getGL2(); 
-		// initialization from [1]
+
 		gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);		// set background (clear) color
 		gl.glClearDepth(1.0f);      					// set clear depth value to farthest
 		gl.glEnable(GL_DEPTH_TEST); 					// enables depth testing

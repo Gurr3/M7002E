@@ -11,6 +11,12 @@ public class Draw_figures {
 	Figures figures = new Figures();
 	int lightnr;
 	
+	/**
+	 * Loop through the list of figures and call each print function
+	 * @param gl
+	 * @param drawable
+	 * @param displaylist
+	 */
 	public void paint(GL2 gl, GLAutoDrawable drawable, ArrayList<Figure_deployment_type> displaylist){
 		gl.glInitNames();
 		lightnr = 0;

@@ -27,6 +27,13 @@ public class CustomCreateDialog extends JDialog implements ActionListener {
 	public Figure_deployment_type getAnswer() { return answer; }
 	public Figure_modification_type getModify() { return modifyvalues; }
 
+	/**
+	 * Create the popup window asking for Figure specs
+	 * @param frame
+	 * @param modal
+	 * @param type
+	 * @param id
+	 */
 	public CustomCreateDialog(JFrame frame, boolean modal, Figure_deployment_type.Fig_type type, int id) {
 
 		super(frame, modal);
