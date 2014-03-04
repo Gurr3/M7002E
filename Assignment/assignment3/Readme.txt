@@ -1,6 +1,6 @@
 Installation instructions:
 
-You must include the blenders folder and the textures folder into the workspace
+You must include the blenders folder and the textures folder into the workspace, github- note that no texture folder was included here, so these needs replacements.
 
 -------------
 
