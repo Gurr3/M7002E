@@ -47,6 +47,8 @@ Bugs
 		motionControl2.setCurrentWayPoint(0);
 	Does not seem to work the way I intended which is to move the spatial that motionControl2 controls to the first waypoint, which would be an effective reset of its placement.
 	But since the assignment does not require that the scene must be resetable I will leave this as is.
+	
+	--Fix: motionControl2.setTime(0);
 
 -------------
 Main points
