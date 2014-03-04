@@ -163,3 +163,9 @@ libs/
 
 # Course pls
 *.zip
+*.exe
+*.png
+*.jpg
+javadoc/
+source/
+jme3/

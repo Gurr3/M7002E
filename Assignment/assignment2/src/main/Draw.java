@@ -88,7 +88,7 @@ public class Draw implements GLEventListener{
 		for (int i = 0; i < 7; i++) {
 			gl.glEnable(GL2.GL_LIGHT0+i);
 		}
-
+		
 	}
 
 	@Override
